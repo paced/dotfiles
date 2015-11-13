@@ -1,0 +1,261 @@
+# ---------------------------------
+# -- Main Configuration:
+# ---------------------------------
+
+# Set mod key to Winkey.
+set $mod        Mod4
+
+# Window border multiplier. Set to 0 to remove borders.
+set $borders    1
+
+# Number of pixels to resize by in resize mode.
+set $resize     2
+
+# Set gap sizes.
+set $gapso      0
+set $gapsi      12
+set $pgapsi		8
+set $pgapso     32
+
+# Set terminal.
+set $term termite
+
+# Window options.
+focus_follows_mouse             true
+popup_during_fullscreen         smart
+
+# Workspace options.
+workspace_layout                default
+workspace_auto_back_and_forth   true
+
+# Window borders:
+hide_edge_borders   true
+new_float           pixel $borders
+new_window          pixel $borders
+smart_borders       no_gaps
+
+# Set initial gaps.
+gaps inner   $gapsi
+gaps outer   $gapso
+
+# Set workspace names.
+set $ws1    "1"
+set $ws2    "2"
+set $ws3    "3"
+set $ws4    "4"
+set $ws5    "5"
+set $ws6    "6"
+set $ws7    "7"
+set $ws8    "8"
+set $ws9    "9"
+
+# Make certain windows floating on launch.
+for_window [class="^Steam$"] 					floating enable
+for_window [title="termite"]		            floating enable
+
+# ---------------------------------
+# -- WM bindings:
+# ---------------------------------
+
+# Restart i3.
+bindsym $mod+Shift+r    restart
+
+# Disable and enable gaps.
+bindsym $mod+n          gaps inner current set 0; gaps outer current \
+set 0
+bindsym $mod+m          gaps inner current set $gapsi; gaps outer \
+current set $gapso
+bindsym $mod+Shift+m	gaps inner current set $pgapsi; gaps outer \
+current set $pgapso
+
+# Kill focused window.
+bindsym $mod+Shift+q    kill
+
+# Focus parent/child.
+bindsym $mod+a 			focus parent
+bindsym $mod+b 			focus child
+
+# Focus bindings.
+bindsym $mod+h 			focus left
+bindsym $mod+j 			focus down
+bindsym $mod+k 			focus up
+bindsym $mod+l 	        focus right
+
+# Same as above, with cursor keys.
+bindsym $mod+Left 		focus left
+bindsym $mod+Down 		focus down
+bindsym $mod+Up 		focus up
+bindsym $mod+Right 		focus right
+
+# Focus last urgent window.
+bindsym $mod+u          [urgent=latest] focus
+
+# Switch to workspace.
+bindsym $mod+comma      workspace prev
+bindsym $mod+period     workspace next
+bindsym $mod+1 			workspace $ws1
+bindsym $mod+2 			workspace $ws2
+bindsym $mod+3 			workspace $ws3
+bindsym $mod+4 			workspace $ws4
+bindsym $mod+5 			workspace $ws5
+bindsym $mod+6 			workspace $ws6
+bindsym $mod+7 			workspace $ws7
+bindsym $mod+8 			workspace $ws8
+bindsym $mod+9 			workspace $ws9
+
+# Move to workspace.
+bindsym $mod+Shift+comma  move container to workspace prev
+bindsym $mod+Shift+period move container to workspace next
+bindsym $mod+Shift+1 	  move container to workspace $ws1
+bindsym $mod+Shift+2 	  move container to workspace $ws2
+bindsym $mod+Shift+3 	  move container to workspace $ws3
+bindsym $mod+Shift+4 	  move container to workspace $ws4
+bindsym $mod+Shift+5	  move container to workspace $ws5
+bindsym $mod+Shift+6	  move container to workspace $ws6
+bindsym $mod+Shift+7 	  move container to workspace $ws7
+bindsym $mod+Shift+8 	  move container to workspace $ws8
+bindsym $mod+Shift+9 	  move container to workspace $ws9
+
+# Shift tiled/floating window.
+bindsym $mod+Shift+h 			move left
+bindsym $mod+Shift+j 			move down
+bindsym $mod+Shift+k 			move up
+bindsym $mod+Shift+l         	move right
+
+# Same, but with cursor keys.
+bindsym $mod+Shift+Left 		move left
+bindsym $mod+Shift+Down 		move down
+bindsym $mod+Shift+Up 			move up
+bindsym $mod+Shift+Right 		move right
+
+# Change layouts.
+bindsym $mod+Shift+t        layout tabbed
+bindsym $mod+e 			    layout toggle split
+bindsym $mod+f			    fullscreen
+bindsym $mod+Shift+space    floating toggle
+
+# Splitting mode.
+bindsym $mod+g 		split h
+bindsym $mod+v 		split v
+
+# Floating mode.
+floating_modifier 	$mod
+bindsym $mod+space	focus mode_toggle
+
+# Sticky a window. You need the latest next-git version.
+bindsym $mod+Shift+S sticky toggle
+
+# Scratchpad.
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Start a terminal window.
+bindsym $mod+Return	exec $term
+
+# Modes:
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $mod+Shift+i mode Ignore
+
+# ---------------------------------
+# -- Modes:
+# ---------------------------------
+
+# Gaps mode.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Resize mode.
+mode "resize" {
+        bindsym h resize grow left $resize px or $resize ppt
+        bindsym k resize grow up $resize px or $resize ppt
+        bindsym j resize shrink down $resize px or $resize ppt
+        bindsym l resize grow right $resize px or $resize ppt
+
+        bindsym Shift+l resize shrink left $resize px or $resize ppt
+        bindsym Shift+j resize shrink up $resize px or $resize ppt
+        bindsym Shift+k resize shrink down $resize px or $resize ppt
+        bindsym Shift+h resize shrink right $resize px or $resize ppt
+
+        bindsym Left resize grow left $resize px or $resize ppt
+        bindsym Up resize grow up $resize px or $resize ppt
+        bindsym Down resize grow down $resize px or $resize ppt
+        bindsym Right resize grow right $resize px or $resize ppt
+
+        bindsym Shift+Right resize shrink left $resize px or $resize ppt
+        bindsym Shift+Down resize shrink up $resize px or $resize ppt
+        bindsym Shift+Up resize shrink down $resize px or $resize ppt
+        bindsym Shift+Left resize shrink right $resize px or $resize ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Ignore mode.
+mode "Ignore" {
+    bindsym Return mode default
+    bindsym Escape mode default
+}
+
+# ---------------------------------
+# -- i3bar and colours:
+# ---------------------------------
+
+# Start i3bar.
+bar {
+    strip_workspace_numbers no
+  position top
+    status_command i3blocks
+    separator_symbol " "
+  tray_output none
+  font pango:Aegean
+  colors {
+    background #fdf6e3
+    statusline #073642
+    separator #073642
+    focused_workspace #fdf6e3 #fdf6e3 #586e75
+    active_workspace #073642 #5f676a #586e75
+    inactive_workspace #eee8d5 #eee8d5 #586e75
+    urgent_workspace #fdf6e3 #073642 #93a1a1
+  }
+}
+
+# Window colours:
+client.focused              #96b5b4 #96b5b4 #ebdbb2 #96b5b4
+client.focused_inactive     #65737e #65737e #ebdbb2 #65737e
+client.unfocused            #65737e #65737e #ebdbb2 #65737e
+client.urgent               #bf616a #bf616a #ee0000 #bf616a

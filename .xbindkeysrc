@@ -1,0 +1,28 @@
+# Laptop brightness settings.
+
+"xbacklight -inc 10"
+  XF86MonBrightnessUp
+  
+"xbacklight -dec 10"
+  XF86MonBrightnessDown
+
+# Laptop sound settings.
+
+"amixer -q sset Master toggle"
+  XF86AudioMute
+
+"amixer -q sset Master 3%-"
+  XF86AudioLowerVolume
+
+"amixer -q sset Master 3%+"
+  XF86AudioRaiseVolume
+
+# Launch process manager.
+
+"termite -e htop --geometry 600x800"
+  Control + Alt + Delete
+
+# Launch hotkeys.
+
+"rofi -show run"
+  F2

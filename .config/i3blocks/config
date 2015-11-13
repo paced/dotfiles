@@ -1,0 +1,27 @@
+# General settings:
+
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+markup=pango
+separator_block_width=12
+separator=false
+align=center
+
+[battery]
+label=⚡
+interval=5
+
+[volume]
+label=🔊 
+instance=Master
+interval=10
+signal=5
+
+[date]
+label=📅 
+command=date '+%a %d %b'
+interval=3600
+
+[time]
+label=🕜 
+command=date '+%I:%M %p '
+interval=30

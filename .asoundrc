@@ -1,0 +1,19 @@
+# Thanks to Enzime for all the help with this.
+# Allows ALSA to take multiple inputs and outputs,
+# and sets latency as small as possible.
+
+pcm.!default {
+    type asym
+    playback.pcm "plug:dmix0"
+    capture.pcm "dsnoop:PCH"
+}
+
+pcm.dmix0 {
+    type dmix
+    ipc_key 4048
+    slave {
+        pcm "hw:PCH"
+        period_size 32
+        buffer_size 1000
+    }
+}
