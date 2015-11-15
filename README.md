@@ -10,7 +10,6 @@ I tried to keep everything with a Solarised Light colour scheme. The GTK themes 
 ## To do:
 
 - Upload my screenshot/upload scripts.
-- Finish and upload rofi config.
 - Finish setting up lid close/screen dim settings.
 - Finish setting up tmux.
 - Finish setting up conky.
