@@ -1,19 +1,16 @@
 # arch-dotfiles
 My Arch Linux dotfiles.
 
-I tried to keep everything with a Solarised Light colour scheme. The GTK themes are Numix-Light Solarised, as are the Numix icons. I am using i3-gaps-next-git with i3blocks for my status bar.
+Computing can and should be personalised and comfortable without conforming to any conventions. This is supposed to be a compressed, vivid, bright, but very dark rice. The GTK themes were generated using oomix and the icons are simply just Solarised Circle. I am using i3-gaps-next-git with i3blocks for my status bar, though this may change.
 
 ## Screenshot:
 
-![alt text](https://i.imgur.com/qc4vUJ1.png "My first rice.")
+[https://imgur.com/a/QSpYE](![alt text](https://i.imgur.com/Y8vM2sv.png "My second rice."))
+Click for the full album.
 
 ## To do:
 
-- Upload my screenshot/upload scripts.
 - Finish setting up lid close/screen dim settings.
 - Finish setting up tmux.
 - Finish setting up conky.
 - Find a way to detect if headphones are plugged in and automatically mute/unmute speakers.
-- Edit some elements of the bar: workspace icons, font.
-- Change console font.
-- *Change the colour scheme.*

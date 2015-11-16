@@ -1,5 +1,14 @@
-# Laptop brightness settings.
+# Control playback.
+"mpc prev && mpdnotify"
+  Control+Mod2 + KP_Left
 
+"mpc next && mpdnotify"
+  Control+Mod2 + KP_Right
+
+"mpc toggle && mpdnotify"
+  Control+Mod2 + KP_Begin
+
+# Laptop brightness settings.
 "xbacklight -inc 10"
   XF86MonBrightnessUp
   
@@ -7,7 +16,6 @@
   XF86MonBrightnessDown
 
 # Laptop sound settings.
-
 "amixer -q sset Master toggle"
   XF86AudioMute
 
@@ -18,11 +26,21 @@
   XF86AudioRaiseVolume
 
 # Launch process manager.
-
-"termite -e htop --geometry 600x800"
+"termite -e htop --geometry 480x600"
   Control + Alt + Delete
 
-# Launch hotkeys.
+# Printscreen.
+"~/.bin/drawmaim.sh -f"
+  Print
 
-"rofi -show run"
+# Printscreen all workspaces.
+"~/.bin/drawmaim.sh -d"
+  Control + Print
+
+# Printscreen region.
+"~/.bin/drawmaim.sh -s"
+  Control + Shift + 2
+
+# Launch hotkeys.
+"rofi -show run -font "gohufont 9" -fg "#ffffff" -hlfg "#000000" -bg "#202020" -hlbg "#76c7b7" -o 85 -width 320 -bc "#ffffff""
   F2

@@ -1,0 +1,55 @@
+[global]
+    font = gohufont 9
+    allow_markup = yes
+    plain_text = no
+    word_wrap = yes
+    ignore_newline = no
+    monitor = 0
+    show_age_threshold = 60
+    format = "<b>%s</b>\n%b"
+    sort = yes  # Urgency sort.
+    indicate_hidden = yes
+    alignment = center
+    bounce_freq = 0
+    geometry = "350x16-4+20"
+    shrink = no
+    transparency = 0  # (100 - alpha)/100
+    idle_threshold = 60
+    follow = mouse
+    sticky_history = yes
+    history_length = 40
+    show_indicators = yes
+    line_height = 0
+    notification_height = 8
+    separator_height = 0
+    padding = 4
+    horizontal_padding = 8
+    separator_color = frame
+    browser = /usr/bin/firefox -new-tab
+    icon_position = off
+    icon_folders = /usr/share/icons/Numix-Circle/16x16/status/
+
+[frame]
+    width = 1
+    color = "#000000"
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#101010"
+    foreground = "#ffffff"
+    timeout = 1
+
+[urgency_normal]
+    background = "#101010"
+    foreground = "#ffffff"
+    timeout = 1
+
+[urgency_critical]
+    background = "#101010"
+    foreground = "#fc6d24"
+    timeout = 0

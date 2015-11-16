@@ -5,7 +5,7 @@
 # Set mod key to Winkey.
 set $mod        Mod4
 
-# Window border multiplier. Set to 0 to remove borders.
+# Window border multiplier.
 set $borders    1
 
 # Number of pixels to resize by in resize mode.
@@ -13,9 +13,11 @@ set $resize     2
 
 # Set gap sizes.
 set $gapso      0
-set $gapsi      12
+set $gapsi      8
 set $pgapsi		8
-set $pgapso     32
+set $pgapso     38
+set $qtgapsi     10
+set $qtgapso     210
 
 # Set terminal.
 set $term termite
@@ -39,19 +41,17 @@ gaps inner   $gapsi
 gaps outer   $gapso
 
 # Set workspace names.
-set $ws1    "1"
-set $ws2    "2"
-set $ws3    "3"
-set $ws4    "4"
-set $ws5    "5"
-set $ws6    "6"
-set $ws7    "7"
-set $ws8    "8"
-set $ws9    "9"
+set $ws1    "1cafe"
+set $ws2    "2code"
+set $ws3    "3fire"
+set $ws4    "4term"
+set $ws5    "5arts"
 
 # Make certain windows floating on launch.
 for_window [class="^Steam$"] 					floating enable
-for_window [title="termite"]		            floating enable
+
+# Start a few things on boot.
+exec --no-startup-id i3-msg 'workspace 2; exec termite; workspace 1'
 
 # ---------------------------------
 # -- WM bindings:
@@ -67,6 +67,8 @@ bindsym $mod+m          gaps inner current set $gapsi; gaps outer \
 current set $gapso
 bindsym $mod+Shift+m	gaps inner current set $pgapsi; gaps outer \
 current set $pgapso
+bindsym $mod+Shift+n    gaps inner current set $qtgapsi; gaps outer \
+current set $qtgapso
 
 # Kill focused window.
 bindsym $mod+Shift+q    kill
@@ -91,17 +93,13 @@ bindsym $mod+Right 		focus right
 bindsym $mod+u          [urgent=latest] focus
 
 # Switch to workspace.
-bindsym $mod+comma      workspace prev
-bindsym $mod+period     workspace next
+bindsym $mod+comma     		workspace prev
+bindsym $mod+period     	workspace next
 bindsym $mod+1 			workspace $ws1
 bindsym $mod+2 			workspace $ws2
 bindsym $mod+3 			workspace $ws3
 bindsym $mod+4 			workspace $ws4
 bindsym $mod+5 			workspace $ws5
-bindsym $mod+6 			workspace $ws6
-bindsym $mod+7 			workspace $ws7
-bindsym $mod+8 			workspace $ws8
-bindsym $mod+9 			workspace $ws9
 
 # Move to workspace.
 bindsym $mod+Shift+comma  move container to workspace prev
@@ -111,10 +109,6 @@ bindsym $mod+Shift+2 	  move container to workspace $ws2
 bindsym $mod+Shift+3 	  move container to workspace $ws3
 bindsym $mod+Shift+4 	  move container to workspace $ws4
 bindsym $mod+Shift+5	  move container to workspace $ws5
-bindsym $mod+Shift+6	  move container to workspace $ws6
-bindsym $mod+Shift+7 	  move container to workspace $ws7
-bindsym $mod+Shift+8 	  move container to workspace $ws8
-bindsym $mod+Shift+9 	  move container to workspace $ws9
 
 # Shift tiled/floating window.
 bindsym $mod+Shift+h 			move left
@@ -231,31 +225,56 @@ mode "Ignore" {
     bindsym Escape mode default
 }
 
+# Start my defaults layouts on boot.
+exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/paced/.config/i3/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/paced/.config/i3/workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/paced/.config/i3/workspace-3.json'"
+exec --no-startup-id "i3-msg 'workspace 4; append_layout /home/paced/.config/i3/workspace-4.json'"
+
 # ---------------------------------
 # -- i3bar and colours:
 # ---------------------------------
 
+# Set colours.
+
+set $base00 #000000
+set $base01 #303030
+set $base02 #505050
+set $base03 #b0b0b0
+set $base04 #d0d0d0
+set $base05 #e0e0e0
+set $base06 #f5f5f5
+set $base07 #ffffff
+set $base08 #fb0120
+set $base09 #fc6d24
+set $base0A #fda331
+set $base0B #a1c659
+set $base0C #76c7b7
+set $base0D #6fb3d2
+set $base0E #d381c3
+set $base0F #be643c
+
 # Start i3bar.
 bar {
-    strip_workspace_numbers no
+    strip_workspace_numbers yes
   position top
     status_command i3blocks
     separator_symbol " "
-  tray_output none
-  font pango:Aegean
-  colors {
-    background #fdf6e3
-    statusline #073642
-    separator #073642
-    focused_workspace #fdf6e3 #fdf6e3 #586e75
-    active_workspace #073642 #5f676a #586e75
-    inactive_workspace #eee8d5 #eee8d5 #586e75
-    urgent_workspace #fdf6e3 #073642 #93a1a1
-  }
+  # tray_output non
+  font pango:gohufont 9
+        colors {
+        separator $base03
+        background $base00
+        statusline $base05
+        focused_workspace $base00 $base01 $base03
+        active_workspace $base00 $base01 $base05
+        inactive_workspace $base00 $base00 $base02
+        urgent_workspace $base00 $base09 $base07
+    }
 }
 
 # Window colours:
-client.focused              #96b5b4 #96b5b4 #ebdbb2 #96b5b4
-client.focused_inactive     #65737e #65737e #ebdbb2 #65737e
-client.unfocused            #65737e #65737e #ebdbb2 #65737e
-client.urgent               #bf616a #bf616a #ee0000 #bf616a
+client.focused $base00 $base00 $base00 $base00
+client.focused_inactive $base00 $base00 $base00 $base00
+client.unfocused $base00 $base00 $base00 $base00
+client.urgent $base02 $base08 $base07 $base08

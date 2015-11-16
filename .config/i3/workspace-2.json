@@ -1,0 +1,101 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 649,
+       "width": 1264,
+       "x": 50,
+       "y": 67
+    },
+    "name": "~/.fehbg - Sublime Text",
+    "percent": 0.640731026259954,
+    "swallows": [
+       {
+       // "class": "^Subl3$",
+       // "instance": "^subl3$",
+       // "title": "^\\~\\/\\.fehbg\\ \\-\\ Sublime\\ Text$",
+       // "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // splitv split container with 3 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.359268973740046,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 266,
+               "width": 482,
+               "x": 0,
+               "y": 0
+            },
+            "name": "~/.bin/pipes.sh -t 3",
+            "percent": 0.231985510628132,
+            "swallows": [
+               {
+               // "class": "^Termite$",
+               // "instance": "^termite$",
+               // "title": "^\\~\\/\\.bin\\/pipes\\.sh\\ \\-t\\ 3$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 266,
+               "width": 482,
+               "x": 0,
+               "y": 0
+            },
+            "name": "paced@heartseed: ~",
+            "percent": 0.136513354892801,
+            "swallows": [
+               {
+               // "class": "^Termite$",
+               // "instance": "^termite$",
+               // "title": "^paced\\@heartseed\\:\\ \\~$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 266,
+               "width": 482,
+               "x": 0,
+               "y": 0
+            },
+            "name": "ranger",
+            "percent": 0.631501134479066,
+            "swallows": [
+               {
+               // "class": "^Termite$",
+               // "instance": "^termite$",
+               // "title": "^ranger$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

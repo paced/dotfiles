@@ -1,0 +1,40 @@
+// vim:ts=4:sw=4:et
+{
+    // floating_con with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": null,
+    "rect": {
+       "height": 266,
+       "width": 482,
+       "x": 442,
+       "y": 259
+    },
+    "type": "floating_con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "user_on",
+            "geometry": {
+               "height": 266,
+               "width": 482,
+               "x": 0,
+               "y": 0
+            },
+            "name": "ranger",
+            "percent": 1,
+            "swallows": [
+               {
+               // "class": "^Termite$",
+               // "instance": "^termite$",
+               // "title": "^ranger$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
