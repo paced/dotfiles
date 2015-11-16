@@ -5,7 +5,7 @@ Computing can and should be personalised and comfortable without conforming to a
 
 ## Screenshot:
 
-[![alt text](https://i.imgur.com/Y8vM2sv.png "My second rice."](https://imgur.com/a/QSpYE)
+[![alt text](https://i.imgur.com/Y8vM2sv.png "My second rice.")](https://imgur.com/a/QSpYE)
 Click for the full album.
 
 ## To do:
