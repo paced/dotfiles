@@ -1,14 +1,14 @@
 #!/bin/bash
 
 function usage {
-	echo "Usage: $(basename $0) <options>" >&2
-	echo "This script uploads screen regions to Imgur and returns a link." >&2
-	echo "" >&2
-	echo "Options:" >&2
-	echo "-h, --help: Show this help message." >&2
-	echo "-f: Screenshot full screen and upload." >&2
-	echo "-s: Screenshot a selection and upload." >&2
-	echo "-d: Screenshot all workspaces." >&2
+	echo "Usage: $(basename $0) <options>"
+	echo "This script uploads screen regions to Imgur and returns a link."
+	echo ""
+	echo "Options:"
+	echo "-h, --help: Show this help message."
+	echo "-f: Screenshot full screen and upload."
+	echo "-s: Screenshot a selection and upload."
+	echo "-d: Screenshot all workspaces."
 }
 
 if [ "$1" = "-h" -o "$1" = "--help" ]; then
