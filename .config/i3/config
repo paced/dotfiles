@@ -51,7 +51,7 @@ set $ws5    "5arts"
 for_window [class="^Steam$"] 					floating enable
 
 # Start a few things on boot.
-exec --no-startup-id i3-msg 'workspace 2; exec termite; workspace 1'
+exec --no-startup-id i3-msg 'workspace code; exec termite; workspace cafe'
 
 # ---------------------------------
 # -- WM bindings:
@@ -226,10 +226,10 @@ mode "Ignore" {
 }
 
 # Start my defaults layouts on boot.
-exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/paced/.config/i3/workspace-1.json'"
-exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/paced/.config/i3/workspace-2.json'"
-exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/paced/.config/i3/workspace-3.json'"
-exec --no-startup-id "i3-msg 'workspace 4; append_layout /home/paced/.config/i3/workspace-4.json'"
+exec --no-startup-id "i3-msg 'workspace cafe; append_layout /home/paced/.config/i3/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace code; append_layout /home/paced/.config/i3/workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace fire; append_layout /home/paced/.config/i3/workspace-3.json'"
+exec --no-startup-id "i3-msg 'workspace term; append_layout /home/paced/.config/i3/workspace-4.json'"
 
 # ---------------------------------
 # -- i3bar and colours:
