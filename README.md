@@ -1,6 +1,8 @@
 # arch-dotfiles
 My Arch Linux dotfiles.
 
+Paving way for bspwm. Note these down if you intend to use them because the next few days will see them all gone/changed.
+
 Computing can and should be personalised and comfortable without conforming to any conventions. This is supposed to be a compressed, vivid, bright, but very dark rice. The GTK themes were generated using oomix and the icons are simply just Solarised Circle. I am using i3-gaps-next-git with i3blocks for my status bar, though this may change.
 
 ## Screenshot:
