@@ -1,9 +1,7 @@
-# arch-dotfiles
+# Dotfiles
 My Arch Linux dotfiles.
 
-Paving way for bspwm. Note these down if you intend to use them because the next update will see them all gone/changed.
-
-Computing can and should be personalised and comfortable without conforming to any conventions. This is supposed to be a compressed, vivid, bright, but very dark rice. The GTK themes were generated using oomix and the icons are simply just Solarised Circle. I am using i3-gaps-next-git with i3blocks for my status bar, though this may change.
+I use i3 with i3blocks as a panel.
 
 ## Screenshot:
 
@@ -14,5 +12,3 @@ Click for the full album.
 
 - Finish setting up lid close/screen dim settings.
 - Finish setting up tmux.
-- Finish setting up conky.
-- Find a way to detect if headphones are plugged in and automatically mute/unmute speakers.
