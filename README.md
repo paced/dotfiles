@@ -1,5 +1,5 @@
 # Dotfiles
-My Arch Linux dotfiles.
+My Arch Linux dotfiles for my conventional laptop. I'll also be using a Surface Pro with Arch whose dotfiles I will include after I finish my sweet, sweet rice.
 
 I use i3 with i3blocks as a panel.
 
