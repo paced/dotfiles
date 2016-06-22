@@ -1,3 +1,4 @@
+# Don't actually use this. I'll update after finals
 # Dotfiles
 My Arch Linux dotfiles for my laptop.
 
