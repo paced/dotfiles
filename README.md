@@ -1,17 +1,44 @@
-# Don't actually use this. I'll update after finals
 # Dotfiles
 My Arch Linux dotfiles for my laptop.
 
-## Introduction
+## Screenshots
 
-I have changed PCs recently and have started using bspwm with lemonbar. I will update the progress of that as I go... no promises.
+Coming soon.
 
-I use(d to use) i3 with i3blocks as a panel. Screenshots of this are listed below.
+## Features
 
-## (OLD) Screenshot:
+- **Window Manager** is i3-gaps-next-git.
+  - I heavily stripped down the config file, only really needing use of the resize mode.
+- **Shell** is zsh with presto.
+- **Terminal Emulator** is termite.
+- **Bar** is Lemonbar, built using Lemonbuddy.
+- **Launcher** is rofi-git.
+- **Browser** is Firefox Developer.
+  - I made basic changes (mostly colour changes) to tylermenezes's fork of twily's powerline CSS for Firefox.
+- **Editor** is atom-editor-git.
+  - Syntax theme is Brogrammer.
+- **GTK Theme** is Paper.
+- **Monospace Font** is Luculent.
+- **UI Font** is ?
+- **Notifications** handled by 
+- **Music Player** is ncmpcpp + mpd (for now).
+- **Video Player** is mpv.
+- **Image Viewer** is feh.
+- **File Manager** is pcmanfm.
 
-[![alt text](https://i.imgur.com/Y8vM2sv.png "My second rice.")](https://imgur.com/a/QSpYE)
-Click for the full album.
+## Upcoming 
 
-## To do:
-
+- Adapt my upload scripts.
+- Upload screenshots.
+- Actually upload the files instead of only the README.
+- Finish configuring fonts for all UI, especially Firefox.
+- Add some more userstyles for sites like Facebook, Wikipedia, Reddit, etc.
+- Finish configuring the look and feel of Atom.
+- Change firefox search suggestion sizes.
+- Change the borders of cloating windows. In general, finish i3 config.
+- Make certain windows floating by default.
+  - e.g.: lxappearance, Firefox popup windows.
+- Finish configuring Lemonbuddy.
+- Fixes and support for multi-monitor setups (auto-detect, i3 windows).
+- A more silent boot, including a prettier transition from rEFInd to Arch.
+- A prettier login screen while retaining simplicity.
