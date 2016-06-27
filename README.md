@@ -18,13 +18,14 @@ Coming soon.
 - **Editor** is atom-editor-git.
   - Syntax theme is Brogrammer.
 - **GTK Theme** is Paper.
-- **Monospace Font** is Luculent.
-- **UI Font** is ?
+- **Monospace Font** is Monofur.
+- **UI Font** is Roboto.
 - **Notifications** handled by 
 - **Music Player** is ncmpcpp + mpd (for now).
 - **Video Player** is mpv.
 - **Image Viewer** is feh.
 - **File Manager** is pcmanfm.
+- 
 
 ## Upcoming 
 
