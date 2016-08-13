@@ -1,0 +1,59 @@
+# Case sensitivity.
+zstyle ':prezto:*:*' case-sensitive 'no'
+
+# Color output.
+zstyle ':prezto:*:*' color 'yes'
+
+# Set the Zsh modules to load (man zshmodules).
+# zstyle ':prezto:load' zmodule 'attr' 'stat'
+
+# Set the Zsh functions to load (man zshcontrib).
+# zstyle ':prezto:load' zfunction 'zargs' 'zmv'
+
+# Modules.
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'git' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt'
+
+# Editor keymap style.
+zstyle ':prezto:module:editor' key-bindings 'vi'
+
+# Query found color.
+zstyle ':prezto:module:history-substring-search:color' found 'green'
+
+# Query not found color.
+zstyle ':prezto:module:history-substring-search:color' not-found 'red'
+
+# Set the Pacman frontend.
+zstyle ':prezto:module:pacman' frontend 'pacaur'
+
+# Theme
+zstyle ':prezto:module:prompt' theme 'sorin'
+
+# Auto start.
+zstyle ':prezto:module:screen:auto-start' local 'yes'
+
+# Syntax highlighting.
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+   'main' \
+   'brackets' \
+   'pattern' \
+   'line' \
+   'cursor' \
+   'root'
+
+# Autoset window titles.
+zstyle ':prezto:module:terminal' auto-title 'yes'
+
+# Window title format.
+zstyle ':prezto:module:terminal:window-title' format '%n@%m: %s'
