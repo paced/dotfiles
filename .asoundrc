@@ -1,7 +1,3 @@
-# Thanks to Enzime for all the help with this.
-# Allows ALSA to take multiple inputs and outputs,
-# and sets latency as small as possible.
-
 pcm.!default {
     type asym
     playback.pcm "plug:dmix0"

@@ -1,17 +1,20 @@
-# Control playback.
-"mpc prev && mpdnotify"
-  Control+Mod2 + KP_Left
-
-"mpc next && mpdnotify"
-  Control+Mod2 + KP_Right
+# Control playback and notify.
+# Coming soon.
 
 "mpc toggle && mpdnotify"
-  Control+Mod2 + KP_Begin
+  Control + Mod2 + KP_Begin
+
+# Keyboard backlight settings
+"asus-kbd-backlight up"
+  XF86KbdBrightnessUp
+
+"asus-kbd-backlight down"
+  XF86KbdBrightnessDown
 
 # Laptop brightness settings.
 "xbacklight -inc 10"
   XF86MonBrightnessUp
-  
+
 "xbacklight -dec 10"
   XF86MonBrightnessDown
 
@@ -25,22 +28,18 @@
 "amixer -q sset Master 3%+"
   XF86AudioRaiseVolume
 
-# Launch process manager.
-"termite -e htop --geometry 480x600"
-  Control + Alt + Delete
-
 # Printscreen.
-"~/.bin/drawmaim.sh -f"
+"drawmaim -f"
   Print
 
 # Printscreen all workspaces.
-"~/.bin/drawmaim.sh -d"
+"drawmaim -d"
   Control + Print
 
 # Printscreen region.
-"~/.bin/drawmaim.sh -s"
+"drawmaim -s"
   Control + Shift + 2
 
-# Launch hotkeys.
-"rofi -show run -font "gohufont 9" -fg "#ffffff" -hlfg "#000000" -bg "#202020" -hlbg "#76c7b7" -o 85 -width 320 -bc "#ffffff""
+# Launch hotkeys. Edit coming soon.
+"rofi -show run -font "gohufont 9" -width 320"
   F2
