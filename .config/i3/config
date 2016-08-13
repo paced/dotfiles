@@ -1,120 +1,144 @@
-# ---------------------------------
-# -- Main Configuration:
-# ---------------------------------
+# -- GENERAL --
 
-# Set mod key to Winkey.
-set $mod        Mod4
+# Mod key.
+set $mod                        Mod4
 
 # Window border multiplier.
-set $borders    1
+set $borders                    2
 
-# Number of pixels to resize by in resize mode.
-set $resize     2
+# Pixels to resize.
+set $resize                     8
 
-# Set gap sizes.
-set $gapso      0
-set $gapsi      8
-set $pgapsi		8
-set $pgapso     38
-set $qtgapsi     10
-set $qtgapso     210
+# Standard gap size.
+set $gapso                      64
+set $gapsi                      12
 
-# Set terminal.
-set $term termite
+# Standard gap increment.
+set $gapcrement                 32
+
+# Default terminal.
+set $term                       termite
 
 # Window options.
-focus_follows_mouse             true
+focus_follows_mouse             false
 popup_during_fullscreen         smart
 
 # Workspace options.
 workspace_layout                default
-workspace_auto_back_and_forth   true
+workspace_auto_back_and_forth   false
 
 # Window borders:
-hide_edge_borders   true
-new_float           pixel $borders
-new_window          pixel $borders
-smart_borders       no_gaps
-
-# Set initial gaps.
-gaps inner   $gapsi
-gaps outer   $gapso
+hide_edge_borders               true
+new_float                       pixel $borders
+new_window                      pixel $borders
+smart_borders                   no_gaps
 
 # Set workspace names.
-set $ws1    "1cafe"
-set $ws2    "2code"
-set $ws3    "3fire"
-set $ws4    "4term"
-set $ws5    "5arts"
+set $ws1                        "1cafe"
+set $ws2                        "2code"
+set $ws3                        "3fire"
+set $ws4                        "4term"
+set $ws5                        "5arts"
+set $ws6                        "2code"
+set $ws7                        "3fire"
+set $ws8                        "4term"
+set $ws9                        "4term"
 
-# Make certain windows floating on launch.
-for_window [class="^Steam$"] 					floating enable
+# Set initial gaps.
+gaps inner                      0
+gaps outer                      0
 
-# Start a few things on boot.
-exec --no-startup-id i3-msg 'workspace code; exec termite; workspace cafe'
+# -- LOOK --
 
-# ---------------------------------
-# -- WM bindings:
-# ---------------------------------
+# Set colours.
+set $base00                     #1f1f1f
+set $base01                     #303030
+set $base02                     #505050
+set $base03                     #b0b0b0
+set $base04                     #d0d0d0
+set $base05                     #e0e0e0
+set $base06                     #f5f5f5
+set $base07                     #ffffff
+set $base08                     #F81118
+set $base09                     #ecba0f
+set $base0A                     #f3bd09
+set $base0B                     #1dd361
+set $base0C                     #2dc55e
+set $base0D                     #2a84d2
+set $base0E                     #4e5ab7
+set $base0F                     #de352e
+
+# Start i3bar.
+bar {
+    strip_workspace_numbers     yes
+    position                    bottom
+    status_command              i3blocks
+    separator_symbol            " "
+    font                        pango:Gohufont 8
+        colors {
+        separator               $base03
+        background              $base00
+        statusline              $base05
+
+        # Workspace colours:    border  backgr. text
+        focused_workspace       $base00 $base01 $base03
+        active_workspace        $base00 $base01 $base05
+        inactive_workspace      $base00 $base00 $base02
+        urgent_workspace        $base00 $base09 $base07
+    }
+}
+
+# Window colours:               backgr. border  text    indicator
+client.focused                  #2dc55e #2dc55e #ffffff #ffffff
+client.focused_inactive         #505050 #505050 #ffffff #ffffff
+client.unfocused                #505050 #505050 #ffffff #ffffff
+client.urgent                   #F81118 #F81118 #ffffff #ffffff
+
+# -- BINDINGS --
 
 # Restart i3.
-bindsym $mod+Shift+r    restart
+bindsym $mod+Shift+r            restart
 
-# Disable and enable gaps.
-bindsym $mod+n          gaps inner current set 0; gaps outer current \
-set 0
-bindsym $mod+m          gaps inner current set $gapsi; gaps outer \
-current set $gapso
-bindsym $mod+Shift+m	gaps inner current set $pgapsi; gaps outer \
-current set $pgapso
-bindsym $mod+Shift+n    gaps inner current set $qtgapsi; gaps outer \
-current set $qtgapso
+# Standard gaps/no gaps.
+bindsym $mod+n                  gaps inner current set 0; \
+                                gaps outer current set 0
+bindsym $mod+m                  gaps inner current set $gapsi; \
+                                gaps outer current set $gapso
 
-# Kill focused window.
-bindsym $mod+Shift+q    kill
+# Gap increments.
+bindsym $mod+comma              gaps outer current plus $gapcrement
+bindsym $mod+period             gaps outer current minus $gapcrement
 
-# Focus parent/child.
-bindsym $mod+a 			focus parent
-bindsym $mod+b 			focus child
-
-# Focus bindings.
-bindsym $mod+h 			focus left
-bindsym $mod+j 			focus down
-bindsym $mod+k 			focus up
-bindsym $mod+l 	        focus right
+# Force kill focused.
+bindsym $mod+Shift+q            kill
 
 # Same as above, with cursor keys.
-bindsym $mod+Left 		focus left
-bindsym $mod+Down 		focus down
-bindsym $mod+Up 		focus up
-bindsym $mod+Right 		focus right
-
-# Focus last urgent window.
-bindsym $mod+u          [urgent=latest] focus
+bindsym $mod+Left 		        focus left
+bindsym $mod+Down 		        focus down
+bindsym $mod+Up 		        focus up
+bindsym $mod+Right 		        focus right
 
 # Switch to workspace.
-bindsym $mod+comma     		workspace prev
-bindsym $mod+period     	workspace next
-bindsym $mod+1 			workspace $ws1
-bindsym $mod+2 			workspace $ws2
-bindsym $mod+3 			workspace $ws3
-bindsym $mod+4 			workspace $ws4
-bindsym $mod+5 			workspace $ws5
+bindsym $mod+1 			        workspace $ws1
+bindsym $mod+2 			        workspace $ws2
+bindsym $mod+3 			        workspace $ws3
+bindsym $mod+4 			        workspace $ws4
+bindsym $mod+5 			        workspace $ws5
+bindsym $mod+6 			        workspace $ws6
+bindsym $mod+7 			        workspace $ws7
+bindsym $mod+8 			        workspace $ws8
+bindsym $mod+9 			        workspace $ws9
 
 # Move to workspace.
-bindsym $mod+Shift+comma  move container to workspace prev
-bindsym $mod+Shift+period move container to workspace next
-bindsym $mod+Shift+1 	  move container to workspace $ws1
-bindsym $mod+Shift+2 	  move container to workspace $ws2
-bindsym $mod+Shift+3 	  move container to workspace $ws3
-bindsym $mod+Shift+4 	  move container to workspace $ws4
-bindsym $mod+Shift+5	  move container to workspace $ws5
-
-# Shift tiled/floating window.
-bindsym $mod+Shift+h 			move left
-bindsym $mod+Shift+j 			move down
-bindsym $mod+Shift+k 			move up
-bindsym $mod+Shift+l         	move right
+bindsym $mod+Shift+1 	        move container to workspace $ws1
+bindsym $mod+Shift+2 	        move container to workspace $ws2
+bindsym $mod+Shift+3 	        move container to workspace $ws3
+bindsym $mod+Shift+4 	        move container to workspace $ws4
+bindsym $mod+Shift+5	        move container to workspace $ws5
+bindsym $mod+Shift+6 	        move container to workspace $ws6
+bindsym $mod+Shift+7 	        move container to workspace $ws7
+bindsym $mod+Shift+8 	        move container to workspace $ws8
+bindsym $mod+Shift+9	        move container to workspace $ws9
 
 # Same, but with cursor keys.
 bindsym $mod+Shift+Left 		move left
@@ -123,158 +147,43 @@ bindsym $mod+Shift+Up 			move up
 bindsym $mod+Shift+Right 		move right
 
 # Change layouts.
-bindsym $mod+Shift+t        layout tabbed
-bindsym $mod+e 			    layout toggle split
-bindsym $mod+f			    fullscreen
-bindsym $mod+Shift+space    floating toggle
+bindsym $mod+f			        fullscreen
+bindsym $mod+Shift+space        floating toggle
 
 # Splitting mode.
-bindsym $mod+g 		split h
-bindsym $mod+v 		split v
+bindsym $mod+h 		            split h
+bindsym $mod+v 		            split v
 
 # Floating mode.
-floating_modifier 	$mod
-bindsym $mod+space	focus mode_toggle
+floating_modifier 	            $mod
+bindsym $mod+space	            focus mode_toggle
 
-# Sticky a window. You need the latest next-git version.
-bindsym $mod+Shift+S sticky toggle
-
-# Scratchpad.
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+# Sticky a window.
+bindsym $mod+Shift+S            sticky toggle
 
 # Start a terminal window.
-bindsym $mod+Return	exec $term
+bindsym $mod+Return	            exec $term
+
+# Start a floating terminal window.
+for_window [class="fTerm"]      floating enable
+bindsym $mod+Shift+Return       exec $term --class fTerm
 
 # Modes:
-bindsym $mod+r mode "resize"
-bindsym $mod+Shift+g mode "$mode_gaps"
-bindsym $mod+Shift+i mode Ignore
+bindsym $mod+r                  mode "resize"
 
-# ---------------------------------
-# -- Modes:
-# ---------------------------------
+# -- MODES --
 
-# Gaps mode.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-
-mode "$mode_gaps" {
-    bindsym o      mode "$mode_gaps_outer"
-    bindsym i      mode "$mode_gaps_inner"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-mode "$mode_gaps_inner" {
-    bindsym plus  gaps inner current plus 5
-    bindsym minus gaps inner current minus 5
-    bindsym 0     gaps inner current set 0
-
-    bindsym Shift+plus  gaps inner all plus 5
-    bindsym Shift+minus gaps inner all minus 5
-    bindsym Shift+0     gaps inner all set 0
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-mode "$mode_gaps_outer" {
-    bindsym plus  gaps outer current plus 5
-    bindsym minus gaps outer current minus 5
-    bindsym 0     gaps outer current set 0
-
-    bindsym Shift+plus  gaps outer all plus 5
-    bindsym Shift+minus gaps outer all minus 5
-    bindsym Shift+0     gaps outer all set 0
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-# Resize mode.
 mode "resize" {
-        bindsym h resize grow left $resize px or $resize ppt
-        bindsym k resize grow up $resize px or $resize ppt
-        bindsym j resize shrink down $resize px or $resize ppt
-        bindsym l resize grow right $resize px or $resize ppt
+    bindsym Left                resize grow left $resize px
+    bindsym Up                  resize grow up $resize px
+    bindsym Down                resize grow down $resize px
+    bindsym Right               resize grow right $resize px
 
-        bindsym Shift+l resize shrink left $resize px or $resize ppt
-        bindsym Shift+j resize shrink up $resize px or $resize ppt
-        bindsym Shift+k resize shrink down $resize px or $resize ppt
-        bindsym Shift+h resize shrink right $resize px or $resize ppt
+    bindsym Shift+Right         resize shrink left $resize px
+    bindsym Shift+Down          resize shrink up $resize px
+    bindsym Shift+Up            resize shrink down $resize px
+    bindsym Shift+Left          resize shrink right $resize px
 
-        bindsym Left resize grow left $resize px or $resize ppt
-        bindsym Up resize grow up $resize px or $resize ppt
-        bindsym Down resize grow down $resize px or $resize ppt
-        bindsym Right resize grow right $resize px or $resize ppt
-
-        bindsym Shift+Right resize shrink left $resize px or $resize ppt
-        bindsym Shift+Down resize shrink up $resize px or $resize ppt
-        bindsym Shift+Up resize shrink down $resize px or $resize ppt
-        bindsym Shift+Left resize shrink right $resize px or $resize ppt
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return              mode "default"
+    bindsym Escape              mode "default"
 }
-
-# Ignore mode.
-mode "Ignore" {
-    bindsym Return mode default
-    bindsym Escape mode default
-}
-
-# Start my defaults layouts on boot.
-exec --no-startup-id "i3-msg 'workspace cafe; append_layout /home/paced/.config/i3/workspace-1.json'"
-exec --no-startup-id "i3-msg 'workspace code; append_layout /home/paced/.config/i3/workspace-2.json'"
-exec --no-startup-id "i3-msg 'workspace fire; append_layout /home/paced/.config/i3/workspace-3.json'"
-exec --no-startup-id "i3-msg 'workspace term; append_layout /home/paced/.config/i3/workspace-4.json'"
-
-# ---------------------------------
-# -- i3bar and colours:
-# ---------------------------------
-
-# Set colours.
-
-set $base00 #000000
-set $base01 #303030
-set $base02 #505050
-set $base03 #b0b0b0
-set $base04 #d0d0d0
-set $base05 #e0e0e0
-set $base06 #f5f5f5
-set $base07 #ffffff
-set $base08 #fb0120
-set $base09 #fc6d24
-set $base0A #fda331
-set $base0B #a1c659
-set $base0C #76c7b7
-set $base0D #6fb3d2
-set $base0E #d381c3
-set $base0F #be643c
-
-# Start i3bar.
-bar {
-    strip_workspace_numbers yes
-  position top
-    status_command i3blocks
-    separator_symbol " "
-  # tray_output non
-  font pango:gohufont 9
-        colors {
-        separator $base03
-        background $base00
-        statusline $base05
-        focused_workspace $base00 $base01 $base03
-        active_workspace $base00 $base01 $base05
-        inactive_workspace $base00 $base00 $base02
-        urgent_workspace $base00 $base09 $base07
-    }
-}
-
-# Window colours:
-client.focused $base00 $base00 $base00 $base00
-client.focused_inactive $base00 $base00 $base00 $base00
-client.unfocused $base00 $base00 $base00 $base00
-client.urgent $base02 $base08 $base07 $base08

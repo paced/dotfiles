@@ -20,23 +20,21 @@ Coming soon.
 - **GTK Theme** is Paper.
 - **Monospace Font** is Monofur.
 - **UI Font** is Roboto.
-- **Notifications** handled by 
+- **Notifications** handled by
 - **Music Player** is ncmpcpp + mpd (for now).
 - **Video Player** is mpv.
 - **Image Viewer** is feh.
 - **File Manager** is pcmanfm.
-- 
 
-## Upcoming 
+## Upcoming
 
 - Adapt my upload scripts.
 - Upload screenshots.
-- Actually upload the files instead of only the README.
 - Finish configuring fonts for all UI, especially Firefox.
 - Add some more userstyles for sites like Facebook, Wikipedia, Reddit, etc.
 - Finish configuring the look and feel of Atom.
 - Change firefox search suggestion sizes.
-- Change the borders of cloating windows. In general, finish i3 config.
+- Change the borders of floating windows. In general, finish i3 config.
 - Make certain windows floating by default.
   - e.g.: lxappearance, Firefox popup windows.
 - Finish configuring Lemonbuddy.
@@ -47,6 +45,6 @@ Coming soon.
 - Redo parts of compton so it looks nice.
 - Auto headphones detection.
 - Rice and fix issues with Mumble.
-- Set up weechat completely.
+- Set up irssi completely.
 - Set up ncmpcpp completely while working on my own music player.
 - Add important keybindings (like for mpc next etc).
