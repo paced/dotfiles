@@ -112,11 +112,15 @@ bindsym $mod+period             gaps outer current minus $gapcrement
 # Force kill focused.
 bindsym $mod+Shift+q            kill
 
-# Same as above, with cursor keys.
+# Focus change.
 bindsym $mod+Left 		        focus left
 bindsym $mod+Down 		        focus down
 bindsym $mod+Up 		        focus up
 bindsym $mod+Right 		        focus right
+bindsym $mod+h   		        focus left
+bindsym $mod+j   		        focus down
+bindsym $mod+k   		        focus up
+bindsym $mod+l   		        focus right
 
 # Switch to workspace.
 bindsym $mod+1 			        workspace $ws1
@@ -140,11 +144,16 @@ bindsym $mod+Shift+7 	        move container to workspace $ws7
 bindsym $mod+Shift+8 	        move container to workspace $ws8
 bindsym $mod+Shift+9	        move container to workspace $ws9
 
-# Same, but with cursor keys.
+# Window movement.
 bindsym $mod+Shift+Left 		move left
 bindsym $mod+Shift+Down 		move down
 bindsym $mod+Shift+Up 			move up
 bindsym $mod+Shift+Right 		move right
+bindsym $mod+Shift+h     		move left
+bindsym $mod+Shift+j     		move down
+bindsym $mod+Shift+k 			move up
+bindsym $mod+Shift+l     		move right
+
 
 # Change layouts.
 bindsym $mod+f			        fullscreen

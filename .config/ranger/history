@@ -1,0 +1,15 @@
+c node
+open_with hhhhhh
+mkdir FoA
+w
+atom
+rm
+remove
+delete
+open_with :q
+shell 
+shell  %s
+[1;3C[1;3D[1;3D[1;3C[1;3D
+[1;3C[1;3D
+
+touch 
