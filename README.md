@@ -3,32 +3,11 @@ My Arch Linux dotfiles.
 
 ## Introduction
 
+I no longer use these dotfiles after migrating to a rMBP in 2017. Feel free to use and adapt them if you like!
+
 These dotfiles were written for a laptop setup with a dual-monitor option. I've always been middle ground between "minimalism" and usability, a fact that I believe is shown here. I've stripped away features I don't need (as much as I could get away with) and extended others. I want a computer that anybody familiar with mouse-heavy operating systems and environments can use, that is drastically extended by knowing your way around things.
 
-## Screenshots
-
-Coming soon.
-
-## Features
-
-- **Window Manager** is i3-gaps-next-git.
-- **Shell** is zsh with presto, default theme.
-- **Terminal Emulator** is termite.
-- **Bar** is Lemonbar, built using Lemonbuddy.
-- **Launcher** is rofi-git.
-- **Browser** is Google Chrome (Developer).
-- **Editor** is atom-editor-git.
-  - Syntax theme is Brogrammer.
-- **GTK Theme** is ?
-- **Monospace Font** is Gohufont.
-- **UI Font** is Roboto.
-- **Notification daemon** is dunst.
-- **Music Player** is ncmpcpp + mpd (for now).
-- **Video Player** is mpv.
-- **Image Viewer** is feh.
-- **File Manager** is ranger.
-
-## Upcoming
+## Future
 
 - Adapt my upload scripts.
 - Upload screenshots.
